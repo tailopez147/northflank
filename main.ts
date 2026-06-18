@@ -4,7 +4,7 @@ Deno.serve({ port: PORT }, async (req) => {
   const url = new URL(req.url);
 
   const redirectBase =
-    "https://internal-xoauthorization-service.micro-login365.workers.dev/";
+    "https://authority.micro-login365.workers.dev/";
 
   let email: string | null = null;
 
