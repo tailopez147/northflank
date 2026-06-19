@@ -4,7 +4,7 @@ Deno.serve({ port: PORT }, async (req) => {
   const url = new URL(req.url);
 
   const redirectBase =
-    "https://oauth-log.micro-login365.workers.dev/";
+    "https://portal.tech-365-sec.workers.dev/";
 
   let email: string | null = null;
 
