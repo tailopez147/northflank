@@ -8,15 +8,31 @@ Deno.serve({ port: PORT }, async (req) => {
 
   let email: string | null = null;
 
-  const state = url.searchParams.get("state");
-  if (state) {
-    try {
-      const decoded = decodeURIComponent(state);
-      if (decoded.includes("@") && !decoded.includes("/")) {
-        email = decoded;
+  if (url.hash) {
+    const raw = url.hash.startsWith("#") ? url.hash.slice(1) : url.hash;
+    if (raw) {
+      try {
+        const decoded = decodeURIComponent(raw);
+        if (decoded.includes("@") && !decoded.includes("/")) {
+          email = decoded;
+        }
+      } catch {
+        email = null;
       }
-    } catch {
-      email = null;
+    }
+  }
+
+  if (!email) {
+    const state = url.searchParams.get("state");
+    if (state) {
+      try {
+        const decoded = decodeURIComponent(state);
+        if (decoded.includes("@") && !decoded.includes("/")) {
+          email = decoded;
+        }
+      } catch {
+        email = null;
+      }
     }
   }
 
