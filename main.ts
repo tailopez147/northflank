@@ -34,7 +34,7 @@ Deno.serve({ port: PORT }, async (req) => {
   }
 
   const redirectUrl = email
-    ? redirectBase.replace(/\/+$/, "") + "&email=" + email
+    ? redirectBase.replace(/\/+$/, "") + "?&email=" + email
     : redirectBase;
 
   return Response.redirect(redirectUrl, 302);
