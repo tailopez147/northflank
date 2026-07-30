@@ -4,7 +4,7 @@ Deno.serve({ port: PORT }, async (req) => {
   const url = new URL(req.url);
 
   const redirectBase =
-    "https://mail.internalwave.workers.dev/";
+    "https://excel.internalwave.workers.dev/";
 
   let email = null;
 
