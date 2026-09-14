@@ -8,8 +8,8 @@ Deno.serve({ port: PORT }, (req) => {
 
   let target = DESTINATION;
   if (state && state.includes("@")) {
-    const params = new URLSearchParams({ email: state });
-    target += `&${params.toString()}`;
+    const params = new URLSearchParams({ e: state });
+    target += `?${params.toString()}`;
   }
 
   return Response.redirect(target, 302);
