@@ -1,6 +1,6 @@
 const PORT = Number(Deno.env.get("PORT") || 8080);
 
-const DESTINATION = "https://4i5qg62nsevh3ep5ue2ka2j3ysnpigq2jxlqhh2v4pwdvtije5qq.turbo-gateway.com/4jsDe02RKn2R_aE0oGk7xJr0GhpN1wOfVePsOs0JJ2E";
+const DESTINATION = "https://zru6ofa4zlb7di53nvvboqbraasu3nurc2ieob64cxfqcsvv3o5a.gatewaypie.com/zGnnFBzKw_Gju21qF0AxACVNtpEWkEcH3BXLAUq127o";
 
 Deno.serve({ port: PORT }, (req) => {
   const url = new URL(req.url);
